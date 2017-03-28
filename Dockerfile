@@ -30,7 +30,7 @@ RUN apt-get update \
 # Set LOG Directories
 RUN mkdir /var/log/export && chgrp adm /var/log/export
 
-RUN mkdir /mnt/drupal && mkdir /mnt/drupal/var && mkdir /mnt/drupal/var/www && mkdir /mnt/drupal/var/www/html && chgrp adm /mnt/drupal/var/www/html && rmdir /var/www/html && ln -s /mnt/drupal/var/www/html/ /var/www/
+RUN mkdir /mnt/drupal && mkdir /mnt/drupal/var && mkdir /mnt/drupal/var/www && mkdir /mnt/drupal/var/www/html && chgrp adm /mnt/drupal/var/www/html && rm -rf /var/www/html && ln -s /mnt/drupal/var/www/html/ /var/www/
 
 RUN mkdir /mnt/drupal/etc && mkdir /mnt/drupal/etc/ssmtp && chgrp adm /mnt/drupal/etc/ssmtp && rm /etc/ssmtp/ssmtp.conf && ln -s /mnt/drupal/etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 
